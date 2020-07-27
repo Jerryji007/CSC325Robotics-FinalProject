@@ -1,6 +1,13 @@
 # CSC325Robotics-FinalProject
 ROS, python implementation of a turtlebot delivering system
 
+## TL;DR just watch this video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=iwZvn-pnuX4
+" target="_blank"><img src="http://img.youtube.com/vi/iwZvn-pnuX4/0.jpg" 
+alt="Demo Video" width="240" height="180" border="10" /></a>
+
+
+
 ## CSC325 Final Project "Coffee" delivering to Nick
 
 We use gmapping and amcl to map out the Steinmetz hallway and 
