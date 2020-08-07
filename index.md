@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+# CSC325Robotics-FinalProject
+ROS, python implementation of a turtlebot delivering system
 
-You can use the [editor on GitHub](https://github.com/Jerryji007/CSC325Robotics-FinalProject/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## TL;DR just watch this video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=iwZvn-pnuX4
+" target="_blank"><img src="http://img.youtube.com/vi/iwZvn-pnuX4/0.jpg" 
+alt="Demo Video" width="240" height="180" border="10" /></a>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## CSC325 Final Project "Coffee" delivering to Nick
 
-```markdown
-Syntax highlighted code block
+We use gmapping and amcl to map out the Steinmetz hallway and 
+picked 3 three locations (nick, matt, resource) 
+and wrote a script for the turtlebot to navigate automatically to 
+the destination after placing the turtlebot in the hallway and give it an 2D position.
 
-# Header 1
-## Header 2
-### Header 3
+Here are the procedures on how to test and use our project:
+1. Configure the machine with ros indigo installed with the turtlebot-01. 
+   (The iMAC in the corner of the crochet has already been configured to the turtlebot-01.)
 
-- Bulleted
-- List
+2. Bring the turtlebot to any desired starting point on the Steinmetz hallway.
 
-1. Numbered
-2. List
+3. Turn on the base and the computer. 
+   (Shut down entirely and restart if the following steps doesn’t work.)
 
-**Bold** and _Italic_ and `Code` text
+4. SSH to the turtlebot-01 from the configured machine and on the turltebot terminal run: 
+	$ roslaunch turtlebot_bringup minimal.launch
 
-[Link](url) and ![Image](src)
-```
+5. In a new turtlebot terminal, type:
+	$ export TURTLEBOT_MAP_FILE=~/Desktop/steinmetz_hall.yaml
+	$ roslaunch turtlebot_navigation amcl_demo.launch
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+6. On a new terminal from the configured machine, type:
+	$ roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
 
-### Jekyll Themes
+7. Then do a 2D-pose estimation on the rviz interface
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Jerryji007/CSC325Robotics-FinalProject/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+8. Start a new turtlebot terminal and type:
+	$ rosrun deliver destination.py <destination>
+	Currently, only “nick”, “matt” and “resource” would work.
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+9. Run and the turtlebot would go to the desired location.
+	If there are severe offset during the path like Wifi connection, 
+	people moving the turtlebot, please go back to step 7. 
+	If not working please go back to step 3.
