@@ -1,4 +1,4 @@
-# CSC325Robotics-FinalProject [sophomore spring]
+# CSC325Robotics-Final Project [sophomore spring]
 ROS, python implementation of a turtlebot delivering system
 
 ## TL;DR just watch this video
